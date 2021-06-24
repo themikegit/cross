@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "description": "for time",
+    "woodItems": [
+      { "name": "pushups", "reps": 30, "weight": "55kg" },
+      { "name": "ROW", "reps": "100km", "weight": "55kg" },
+      { "name": "deadlift", "reps": 30, "weight": "55kg" }
+    ],
+    "time": []
+  },
+  {
+    "id": "2",
+    "description": "AMRAP",
+    "woodItems": [
+      { "name": "clean", "reps": 10, "weight": "155kg" },
+      { "name": "pushups", "reps": 30, "weight": "55kg" },
+      { "name": "thruster", "reps": 50, "weight": "65kg" }
+    ],
+    "time": []
+  }
+]

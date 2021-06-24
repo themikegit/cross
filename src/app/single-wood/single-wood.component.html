@@ -1,0 +1,21 @@
+<!-- {{ wodObs$ | async | json }} -->
+<div class="p-d-flex p-flex-column p-ai-center">
+  <h1>{{ (wodObs$ | async)?.description }}</h1>
+  <h3>{{ (wodObs$ | async)?.sub }}</h3>
+  <ul>
+    <li *ngFor="let item of (wodObs$ | async)?.wood">
+      {{ item.name }} reps: {{ item.reps }} weight: {{ item.weight }}
+    </li>
+  </ul>
+
+  <h4>Times:</h4>
+
+  <ul>
+    <li *ngFor="let item of (wodObs$ | async)?.time">
+      {{ item.created }} => {{ item.minutes }} : {{ item.seconds
+      }}{{ item.weight }}
+    </li>
+  </ul>
+</div>
+
+<app-timer></app-timer>

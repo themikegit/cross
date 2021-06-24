@@ -1,0 +1,50 @@
+<div class="p-d-flex p-flex-column p-ai-center">
+  <div #currentTime class="p-d-flex">
+    <h1>{{ minutes | prefixZero }}</h1>
+    <h1>:</h1>
+    <h1>{{ seconds | prefixZero }}</h1>
+  </div>
+  <ol>
+    <li *ngFor="let item of rounds">
+      {{ item.minutes | prefixZero }} : {{ item.seconds | prefixZero }}
+    </li>
+  </ol>
+
+  <div>
+    <button
+      pButton
+      type="button"
+      icon="pi pi-flag"
+      class="p-button-raised p-button-rounded p-button-info"
+      (click)="roundTime()"
+    ></button>
+
+    <button
+      pButton
+      type="button"
+      icon="{{ icon }}"
+      class="p-button-raised p-button-rounded p-button-success p-m-1 p-p-4"
+      (click)="startTimerMod()"
+    ></button>
+
+    <button
+      pButton
+      type="button"
+      icon="pi pi-refresh"
+      class="p-button-raised p-button-rounded p-button-danger"
+      (click)="resetTime()"
+    ></button>
+  </div>
+
+  <button
+    pButton
+    type="button"
+    label="FINISH"
+    class="p-button-help p-mt-5"
+    (click)="finishTime()"
+  ></button>
+  <div>
+    <h1></h1>
+    <h4></h4>
+  </div>
+</div>

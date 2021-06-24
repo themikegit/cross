@@ -1,0 +1,10 @@
+<div class="p-d-flex">
+  <p-card class="p-m-2" *ngFor="let item of allWods" [routerLink]="[item.id]">
+    <ng-template pTemplate="header"> {{ item.description }} </ng-template>
+    <h3>{{ item.sub }}</h3>
+    <p *ngFor="let item of item.wood">
+      {{ item.name }}{{ item.reps }} {{ item.weight }}
+    </p>
+    <ng-template pTemplate="footer"> </ng-template>
+  </p-card>
+</div>

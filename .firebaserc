@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "wod-base": {
+      "hosting": {
+        "primeApp": [
+          "wod-base"
+        ]
+      }
+    }
+  }
+}
