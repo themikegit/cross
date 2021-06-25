@@ -83,6 +83,7 @@ const routes: Routes = [
     TableModule,
     InputTextModule,
     DialogModule,
+    PanelModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

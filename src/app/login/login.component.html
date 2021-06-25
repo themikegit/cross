@@ -1,13 +1,15 @@
-<p-dialog header="Title" [(visible)]="display">
-  <div class="p-inputgroup">
+<p-dialog header="Log in" [(visible)]="display">
+  <div class="p-inputgroup p-m-2">
     <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
     <input type="text" pInputText placeholder="Username" />
   </div>
-  <div class="p-inputgroup">
+  <div class="p-inputgroup p-m-2">
     <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
-    <input type="text" pInputText placeholder="Password" />
+    <input type="password" pInputText placeholder="Password" />
   </div>
-  <button (click)="logIn()">Log in mike</button>
+  <button pButton type="button" class="p-m-2" (click)="logIn()">
+    Log in auto
+  </button>
 </p-dialog>
 
 <button
