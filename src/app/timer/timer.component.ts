@@ -25,6 +25,9 @@ export class TimerComponent implements OnInit {
   completedTime;
   currentRoute;
   targetWod;
+  roundsObj = {
+    allRounds: [],
+  };
 
   startTimerMod() {
     if (this.running) {
@@ -60,9 +63,18 @@ export class TimerComponent implements OnInit {
     this.seconds = 0;
     this.minutes = 0;
   }
-
+  round = 1;
   roundTime() {
-    this.rounds.push({ minutes: this.minutes, seconds: this.seconds });
+    this.roundsObj.allRounds.push({
+      round: this.round++,
+      minutes: this.minutes,
+      seconds: this.seconds,
+    });
+    // this.rounds.push({
+    //   round: this.rounds.length + 1,
+    //   minutes: this.minutes,
+    //   seconds: this.seconds,
+    // });
   }
 
   newDate() {
@@ -80,11 +92,14 @@ export class TimerComponent implements OnInit {
       minutes: this.minutes,
       seconds: this.seconds,
       created: this.newDate(),
+      rounds: this.roundsObj,
     };
     this.targetWod = this.asf.collection('wod').doc(this.currentRoute);
     this.targetWod.update({
       time: firebase.firestore.FieldValue.arrayUnion(this.completedTime),
+      rounds: firebase.firestore.FieldValue.arrayUnion(...this.rounds),
     });
+
     this.resetTime();
   }
 

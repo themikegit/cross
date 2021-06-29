@@ -20,6 +20,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { LogComponent } from './log/log.component';
 import { TableModule } from 'primeng/table';
+import { AccordionModule } from 'primeng/accordion';
 import { LoginComponent } from './login/login.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { InputTextModule } from 'primeng/inputtext';
@@ -84,6 +85,7 @@ const routes: Routes = [
     InputTextModule,
     DialogModule,
     PanelModule,
+    AccordionModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
