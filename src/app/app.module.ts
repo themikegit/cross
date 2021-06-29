@@ -24,6 +24,8 @@ import { AccordionModule } from 'primeng/accordion';
 import { LoginComponent } from './login/login.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { InputTextModule } from 'primeng/inputtext';
+import { TabViewModule } from 'primeng/tabview';
+
 import {
   AngularFireAuthGuard,
   redirectUnauthorizedTo,
@@ -82,6 +84,7 @@ const routes: Routes = [
     HttpClientModule,
     PanelModule,
     TableModule,
+    TabViewModule,
     InputTextModule,
     DialogModule,
     PanelModule,

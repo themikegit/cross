@@ -1,4 +1,4 @@
-<p-panel *ngFor="let item of allWods" header="{{ item.description }}">
+<!-- <p-panel *ngFor="let item of allWods" header="{{ item.description }}">
   <ng-template pTemplate="icons">
     <button
       icon="pi pi-play"
@@ -11,4 +11,10 @@
   <p *ngFor="let item of item.wood">
     {{ item.name }}{{ item.reps }} {{ item.weight }}
   </p>
-</p-panel>
+</p-panel> -->
+
+<div class="wod" *ngFor="let item of allWods" routerLink="{{ item.id }}">
+  <h1>{{ item.description }}</h1>
+  <h3>{{ item.sub }}</h3>
+  <p>{{ item.wod }}</p>
+</div>
