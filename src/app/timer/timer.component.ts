@@ -20,7 +20,7 @@ export class TimerComponent implements OnInit {
   seconds = 0;
   minutes = 0;
   int: any;
-  rounds = [];
+
   icon = 'pi pi-play';
   completedTime;
   currentRoute;
@@ -62,6 +62,7 @@ export class TimerComponent implements OnInit {
     this.icon = 'pi pi-play';
     this.seconds = 0;
     this.minutes = 0;
+    this.roundsObj.allRounds = [];
   }
   round = 1;
   roundTime() {
@@ -70,11 +71,6 @@ export class TimerComponent implements OnInit {
       minutes: this.minutes,
       seconds: this.seconds,
     });
-    // this.rounds.push({
-    //   round: this.rounds.length + 1,
-    //   minutes: this.minutes,
-    //   seconds: this.seconds,
-    // });
   }
 
   newDate() {
@@ -97,7 +93,6 @@ export class TimerComponent implements OnInit {
     this.targetWod = this.asf.collection('wod').doc(this.currentRoute);
     this.targetWod.update({
       time: firebase.firestore.FieldValue.arrayUnion(this.completedTime),
-      rounds: firebase.firestore.FieldValue.arrayUnion(...this.rounds),
     });
 
     this.resetTime();
