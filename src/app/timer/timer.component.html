@@ -5,7 +5,7 @@
     <h1>{{ seconds | prefixZero }}</h1>
   </div>
   <ol>
-    <li *ngFor="let item of rounds">
+    <li *ngFor="let item of roundsObj.allRounds">
       {{ item.minutes | prefixZero }} : {{ item.seconds | prefixZero }}
     </li>
   </ol>

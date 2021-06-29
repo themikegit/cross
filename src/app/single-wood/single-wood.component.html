@@ -7,15 +7,37 @@
       {{ item.name }} reps: {{ item.reps }} weight: {{ item.weight }}
     </li>
   </ul>
-
-  <h4>Times:</h4>
-
-  <ul>
-    <li *ngFor="let item of (wodObs$ | async)?.time">
-      {{ item.created }} => {{ item.minutes }} : {{ item.seconds
-      }}{{ item.weight }}
-    </li>
-  </ul>
 </div>
+
+<p-accordion>
+  <p-accordionTab
+    *ngFor="let item of (wodObs$ | async)?.time"
+    header="{{ item.created }}"
+  >
+    <span>total time: {{ item.minutes }} : {{ item.seconds }} </span>
+
+    <p-table
+      *ngIf="item.rounds"
+      [value]="item.rounds.allRounds"
+      [scrollable]="true"
+      scrollHeight="200px"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Round</th>
+          <th>Minutes</th>
+          <th>Seconds</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item>
+        <tr>
+          <td>{{ item.round }}</td>
+          <td>{{ item.minutes }}</td>
+          <td>{{ item.seconds }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-accordionTab>
+</p-accordion>
 
 <app-timer></app-timer>
