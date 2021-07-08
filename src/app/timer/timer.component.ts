@@ -66,11 +66,13 @@ export class TimerComponent implements OnInit {
   }
   round = 1;
   roundTime() {
-    this.roundsObj.allRounds.push({
-      round: this.round++,
-      minutes: this.minutes,
-      seconds: this.seconds,
-    });
+    if (!this.running) {
+      this.roundsObj.allRounds.push({
+        round: this.round++,
+        minutes: this.minutes,
+        seconds: this.seconds,
+      });
+    }
   }
 
   newDate() {

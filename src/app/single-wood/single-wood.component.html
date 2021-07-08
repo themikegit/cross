@@ -4,10 +4,10 @@
   <p-tabPanel header="WOD">
     <div class="p-d-flex p-flex-column p-ai-center">
       <h1>{{ (wodObs$ | async)?.description }}</h1>
-      <h3>{{ (wodObs$ | async)?.sub }}</h3>
-      <p>
+      <h2>{{ (wodObs$ | async)?.sub }}</h2>
+      <h2>
         {{ (wodObs$ | async)?.wod }}
-      </p>
+      </h2>
     </div>
   </p-tabPanel>
   <p-tabPanel header="TIMES">
