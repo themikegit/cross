@@ -1,0 +1,28 @@
+<p-messages [(value)]="msgs"></p-messages>
+<form
+  class="p-d-flex p-flex-wrap p-jc-center p-ai-center"
+  [formGroup]="wodForm"
+  (ngSubmit)="submitWod()"
+>
+  <input
+    type="text"
+    pInputText
+    placeholder="type of wod"
+    formControlName="description"
+  />
+
+  <input type="text" pInputText placeholder="reps" formControlName="sub" />
+  <input
+    type="text"
+    pInputText
+    placeholder="wod description"
+    formControlName="wod"
+  />
+  <p-button
+    type="submit"
+    label="Save WOD"
+    icon="pi pi-check"
+    iconPos="left"
+    [disabled]="!wodForm.valid"
+  ></p-button>
+</form>

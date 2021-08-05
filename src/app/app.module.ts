@@ -8,7 +8,7 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
 import { MenuModule } from 'primeng/menu';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TimerComponent } from './timer/timer.component';
 import { PrefixZeroPipe } from './prefix-zero.pipe';
 import { RouterModule, Routes } from '@angular/router';
@@ -25,13 +25,15 @@ import { LoginComponent } from './login/login.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { TabViewModule } from 'primeng/tabview';
-
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 import {
   AngularFireAuthGuard,
   redirectUnauthorizedTo,
 } from '@angular/fire/auth-guard';
 import { CommonModule } from '@angular/common';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { AddNewComponent } from './add-new/add-new.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
 
@@ -46,6 +48,12 @@ const routes: Routes = [
   {
     path: 'log',
     component: LogComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
+  },
+  {
+    path: 'add-new',
+    component: AddNewComponent,
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
@@ -68,8 +76,10 @@ const routes: Routes = [
     LoginComponent,
     NavigationComponent,
     WelcomeComponent,
+    AddNewComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     CommonModule,
     FormsModule,
@@ -80,6 +90,8 @@ const routes: Routes = [
     BrowserAnimationsModule,
     ToggleButtonModule,
     MenuModule,
+    MessageModule,
+    MessagesModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     PanelModule,
