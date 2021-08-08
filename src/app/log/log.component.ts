@@ -32,7 +32,9 @@ export class LogComponent implements OnInit {
               id: d.id,
               description: d.description,
               sub: d.sub,
-              time: d.time[0].minutes + ':' + d.time[0].seconds,
+              time: d.time
+                ? d.time[0].minutes + ':' + d.time[0].seconds
+                : 'not loged time',
             });
           });
           return rw;

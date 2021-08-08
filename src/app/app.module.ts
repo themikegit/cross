@@ -34,6 +34,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AddNewComponent } from './add-new/add-new.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
 
@@ -102,6 +103,12 @@ const routes: Routes = [
     PanelModule,
     AccordionModule,
     AngularFireModule.initializeApp(environment.firebase),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

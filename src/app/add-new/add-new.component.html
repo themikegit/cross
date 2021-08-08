@@ -1,4 +1,4 @@
-<p-messages [(value)]="msgs"></p-messages>
+<p-messages></p-messages>
 <form
   class="p-d-flex p-flex-wrap p-jc-center p-ai-center"
   [formGroup]="wodForm"
@@ -23,6 +23,8 @@
     label="Save WOD"
     icon="pi pi-check"
     iconPos="left"
-    [disabled]="!wodForm.valid"
   ></p-button>
 </form>
+
+<!-- 
+[disabled]="!wodForm.valid" -->

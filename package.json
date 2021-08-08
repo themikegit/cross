@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~11.1.2",
     "@angular/platform-browser-dynamic": "~11.1.2",
     "@angular/router": "~11.1.2",
+    "@angular/service-worker": "~11.1.2",
     "firebase": "^8.6.7",
     "primeflex": "^2.0.0",
     "primeicons": "^4.1.0",
