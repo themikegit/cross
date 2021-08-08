@@ -13,17 +13,17 @@ export class FireAuthService {
   }
 
   login(email: string, password: string) {
-    this.fireAuth
+    return this.fireAuth
       .signInWithEmailAndPassword(email, password)
       .then((res) => localStorage.setItem('user', JSON.stringify(res.user)))
-      .then((res) => this.router.navigate(['/all-wod']));
+      .then(() => this.router.navigate(['/all-wod']));
   }
 
   logout() {
     this.fireAuth
       .signOut()
-      .then((res) => localStorage.removeItem('user'))
-      .then((res) => this.router.navigate(['']));
+      .then(() => localStorage.removeItem('user'))
+      .then(() => this.router.navigate(['']));
   }
 
   // signup() {
