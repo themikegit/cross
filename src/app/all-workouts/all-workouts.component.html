@@ -12,9 +12,10 @@
     {{ item.name }}{{ item.reps }} {{ item.weight }}
   </p>
 </p-panel> -->
-
-<div class="wod" *ngFor="let item of allWods" routerLink="{{ item.id }}">
-  <h1>{{ item.description }}</h1>
-  <h3>{{ item.sub }}</h3>
-  <p>{{ item.wod }}</p>
+<div class="grid">
+  <div class="wod" *ngFor="let item of allWods" routerLink="{{ item.id }}">
+    <h1>{{ item.description }}</h1>
+    <h3>{{ item.sub }}</h3>
+    <p>{{ item.wod }}</p>
+  </div>
 </div>

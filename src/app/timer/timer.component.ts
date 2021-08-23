@@ -2,6 +2,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { TimeResultsService } from '../time-results.service';
+import NoSleep from 'nosleep.js';
+
 import firebase from 'firebase/app';
 
 @Component({
@@ -29,6 +31,12 @@ export class TimerComponent implements OnInit {
     allRounds: [],
   };
 
+  noSleep = new NoSleep();
+
+  ngOnInit(): void {
+    this.route.params.subscribe((res) => (this.currentRoute = res.id));
+  }
+
   startTimerMod() {
     if (this.running) {
       this.startTime();
@@ -49,6 +57,7 @@ export class TimerComponent implements OnInit {
       this.seconds = this.seconds + 1;
       console.log(this.seconds);
     }, 1000);
+    this.noSleep.enable();
   }
 
   pauseTime() {
@@ -98,9 +107,6 @@ export class TimerComponent implements OnInit {
     });
 
     this.resetTime();
-  }
-
-  ngOnInit(): void {
-    this.route.params.subscribe((res) => (this.currentRoute = res.id));
+    this.noSleep.disable();
   }
 }

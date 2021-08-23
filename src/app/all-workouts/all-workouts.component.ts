@@ -14,7 +14,6 @@ export class AllWorkoutsComponent implements OnInit {
   ngOnInit() {
     this.woodService.getWods().subscribe((res) => {
       this.allWods = res;
-      console.log(this.allWods);
     });
   }
 }

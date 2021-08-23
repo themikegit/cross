@@ -1,5 +1,16 @@
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .wod {
   text-align: center;
   margin: 10px;
-  border: 1px solid black;
+  background: linear-gradient(96.02deg, #2579a8 29.68%, #0244b2 144.76%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  width: 300px;
+  border-radius: 5px;
+  padding: 5px 10px;
 }

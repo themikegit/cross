@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Message, MessageService } from 'primeng/api';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-new',
@@ -11,7 +12,11 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providers: [MessageService],
 })
 export class AddNewComponent implements OnInit {
-  constructor(private afs: AngularFirestore, private msgserv: MessageService) {}
+  constructor(
+    private afs: AngularFirestore,
+    private msgserv: MessageService,
+    private router: Router
+  ) {}
 
   addSingle(msg: string, type: string, time: number) {
     this.msgserv.add({
@@ -25,20 +30,20 @@ export class AddNewComponent implements OnInit {
     }, time);
   }
 
-  addMultiple() {
-    this.msgserv.addAll([
-      {
-        severity: 'success',
-        summary: 'Service Message',
-        detail: 'Via MessageService',
-      },
-      {
-        severity: 'info',
-        summary: 'Info Message',
-        detail: 'Via MessageService',
-      },
-    ]);
-  }
+  // addMultiple() {
+  //   this.msgserv.addAll([
+  //     {
+  //       severity: 'success',
+  //       summary: 'Service Message',
+  //       detail: 'Via MessageService',
+  //     },
+  //     {
+  //       severity: 'info',
+  //       summary: 'Info Message',
+  //       detail: 'Via MessageService',
+  //     },
+  //   ]);
+  // }
 
   clear() {
     this.msgserv.clear();
@@ -51,10 +56,13 @@ export class AddNewComponent implements OnInit {
   });
 
   submitWod() {
+    let lastID = '';
     this.afs
       .collection('wod')
       .add(this.wodForm.value)
-      .then((res) => console.log(res));
+      .then((docRef) => (lastID = docRef.id))
+      .then(() => this.addSingle('wod added', 'success', 1000))
+      .then(() => this.router.navigate(['/all-wod', lastID]));
   }
 
   ngOnInit(): void {}

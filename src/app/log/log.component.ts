@@ -41,7 +41,7 @@ export class LogComponent implements OnInit {
         })
       )
       .subscribe((res) => {
-        console.log(res), (this.products = res);
+        this.products = res;
       });
 
     this.cols = [
