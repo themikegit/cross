@@ -2,12 +2,16 @@
   [columns]="cols"
   [value]="products"
   styleClass="p-datatable-responsive-demo"
+  styleClass="p-datatable-striped"
 >
   <ng-template pTemplate="header" let-columns>
     <tr>
-      <th *ngFor="let col of columns">
-        {{ col.header }}
-      </th>
+      <ng-container *ngFor="let col of columns">
+        <th pSortableColumn="{{ col.field }}">
+          <p-sortIcon></p-sortIcon>
+          {{ col.header }}
+        </th>
+      </ng-container>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-rowData let-columns="columns">

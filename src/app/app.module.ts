@@ -35,6 +35,7 @@ import { CommonModule } from '@angular/common';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AddNewComponent } from './add-new/add-new.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { HeaderComponent } from './header/header.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
 
@@ -78,6 +79,7 @@ const routes: Routes = [
     NavigationComponent,
     WelcomeComponent,
     AddNewComponent,
+    HeaderComponent,
   ],
   imports: [
     ReactiveFormsModule,

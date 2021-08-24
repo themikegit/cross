@@ -1,20 +1,82 @@
 <p-messages></p-messages>
 <p-dialog header="Log in" [(visible)]="display">
-  <div class="p-inputgroup p-m-2">
-    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-    <input type="text" pInputText placeholder="Username" />
-  </div>
-  <div class="p-inputgroup p-m-2">
-    <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
-    <input type="password" pInputText placeholder="Password" />
-  </div>
-  <button pButton type="button" class="p-m-2" (click)="logIn()">
-    Log in auto
-  </button>
+  <p-tabView>
+    <p-tabPanel header="Log In">
+      <form [formGroup]="userForm">
+        <div class="p-inputgroup p-m-2">
+          <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+          <input
+            type="text"
+            pInputText
+            formControlName="email"
+            placeholder="Email"
+          />
+        </div>
+        <div class="p-inputgroup p-m-2">
+          <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+          <input
+            type="password"
+            pInputText
+            formControlName="password"
+            placeholder="Password"
+          />
+        </div>
+      </form>
+      <button
+        pButton
+        type="button"
+        type="submit"
+        class="p-m-2"
+        (click)="logIn()"
+      >
+        Log in auto
+      </button>
+    </p-tabPanel>
+    <p-tabPanel header="Register">
+      <form [formGroup]="userForm">
+        <div class="p-inputgroup p-m-2">
+          <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+          <input
+            type="text"
+            pInputText
+            formControlName="username"
+            placeholder="User name"
+          />
+        </div>
+        <div class="p-inputgroup p-m-2">
+          <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+          <input
+            type="text"
+            pInputText
+            formControlName="email"
+            placeholder="Email"
+          />
+        </div>
+        <div class="p-inputgroup p-m-2">
+          <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+          <input
+            type="password"
+            pInputText
+            formControlName="password"
+            placeholder="Password"
+          />
+        </div>
+      </form>
+      <button
+        pButton
+        type="submit"
+        type="button"
+        class="p-m-2"
+        (click)="register()"
+      >
+        Register
+      </button>
+    </p-tabPanel>
+  </p-tabView>
 </p-dialog>
 
 <button
-  *ngIf="!fireUser; else out"
+  *ngIf="!sessionUser; else out"
   pButton
   type="button"
   label="LogIn"
