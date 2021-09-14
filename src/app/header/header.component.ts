@@ -7,11 +7,11 @@ import { FireAuthService } from '../fire-auth.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private user: FireAuthService) {}
+  constructor(private loggedUser: FireAuthService) {}
   currentUser;
   ngOnInit(): void {
-    this.user
-      .currentUser()
-      .subscribe((res) => (this.currentUser = res.displayName));
+    this.loggedUser.userDetails.subscribe((res) => {
+      this.currentUser = res.displayName;
+    });
   }
 }
