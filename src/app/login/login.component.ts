@@ -26,7 +26,9 @@ export class LoginComponent implements OnInit {
   });
 
   ngOnInit() {
-    this.authService.currentUser().subscribe((res) => (this.sessionUser = res));
+    this.authService.userDetails.subscribe((res) => {
+      this.sessionUser = res;
+    });
   }
 
   showDialog() {
