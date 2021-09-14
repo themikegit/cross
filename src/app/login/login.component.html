@@ -74,24 +74,22 @@
     </p-tabPanel>
   </p-tabView>
 </p-dialog>
-
 <button
-  *ngIf="!sessionUser; else out"
+  *ngIf="auth.user | async; else login"
   pButton
   type="button"
-  label="LogIn"
+  label="LOGOUT"
   class="p-button-outlined p-button-rounded"
-  icon="pi pi-users"
-  (click)="showDialog()"
+  icon="pi pi-out"
+  (click)="logoutlocal()"
 ></button>
-
-<ng-template #out>
+<ng-template #login>
   <button
     pButton
     type="button"
-    label="LOGOUT"
+    label="LogIn"
     class="p-button-outlined p-button-rounded"
-    icon="pi pi-out"
-    (click)="logoutlocal()"
+    icon="pi pi-users"
+    (click)="showDialog()"
   ></button>
 </ng-template>

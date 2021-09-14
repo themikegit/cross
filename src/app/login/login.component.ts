@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: FireAuthService,
     private router: Router,
-    private msgserv: MessageService
+    private msgserv: MessageService,
+    public auth: AngularFireAuth
   ) {}
 
   display: boolean = false;
@@ -25,9 +27,13 @@ export class LoginComponent implements OnInit {
     password: new FormControl(),
   });
 
+<<<<<<< Updated upstream
   ngOnInit() {
     this.authService.currentUser().subscribe((res) => (this.sessionUser = res));
   }
+=======
+  ngOnInit() {}
+>>>>>>> Stashed changes
 
   showDialog() {
     this.display = true;

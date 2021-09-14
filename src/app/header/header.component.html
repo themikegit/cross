@@ -1,1 +1,7 @@
+<<<<<<< Updated upstream
 <h2>Hello, {{ currentUser }}</h2>
+=======
+<ng-container *ngIf="auth.user | async as user">
+  <h2>Hello, {{ user.displayName }}</h2>
+</ng-container>
+>>>>>>> Stashed changes
