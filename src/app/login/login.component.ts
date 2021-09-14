@@ -29,7 +29,9 @@ export class LoginComponent implements OnInit {
 
 <<<<<<< Updated upstream
   ngOnInit() {
-    this.authService.currentUser().subscribe((res) => (this.sessionUser = res));
+    this.authService.userDetails.subscribe((res) => {
+      this.sessionUser = res;
+    });
   }
 =======
   ngOnInit() {}

@@ -8,25 +8,34 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class FireAuthService {
   constructor(private fireAuth: AngularFireAuth, private router: Router) {}
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   userDetails = new BehaviorSubject<any>({ user: { displayName: 'Guest' } });
 =======
 >>>>>>> Stashed changes
+=======
+  //logged user if any
+  userDetails = new BehaviorSubject<any>('');
+>>>>>>> 972697941741cb7db37dbe3f129924c7493e9cb4
 
-  currentUser() {
-    return this.fireAuth.authState;
-  }
-
-  login(email: string, password: string) {
+  login(email: string, password: string): any {
     return this.fireAuth
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
         localStorage.setItem('user', JSON.stringify(res.user));
       })
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 
 >>>>>>> Stashed changes
+=======
+      .then(() =>
+        this.fireAuth.authState.subscribe((res) => {
+          this.userDetails.next(res);
+        })
+      )
+>>>>>>> 972697941741cb7db37dbe3f129924c7493e9cb4
       .then(() => this.router.navigate(['/all-wod']));
   }
 
@@ -34,6 +43,7 @@ export class FireAuthService {
     this.fireAuth
       .signOut()
       .then(() => localStorage.removeItem('user'))
+      .then(() => this.userDetails.next(''))
       .then(() => this.router.navigate(['']));
   }
 
