@@ -27,15 +27,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl(),
   });
 
-<<<<<<< Updated upstream
-  ngOnInit() {
-    this.authService.userDetails.subscribe((res) => {
-      this.sessionUser = res;
-    });
-  }
-=======
   ngOnInit() {}
->>>>>>> Stashed changes
 
   showDialog() {
     this.display = true;
